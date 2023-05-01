@@ -1,6 +1,6 @@
 import { HeaderBox } from "./styles";
 
-function Header({}) {
+function Header() {
   return (
     <HeaderBox>
       <h1>
