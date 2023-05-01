@@ -4,6 +4,7 @@ import "./App.css";
 import { aData } from "./DB/db";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Header from "./components/Header";
 
 function App() {
   const [list, setList] = useState(aData);
@@ -30,9 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Logo</h1>
-      </header>
+      <Header className="App-header"></Header>
       <main>
         <h2>Lista de Contatos</h2>
         <div>
