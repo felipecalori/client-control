@@ -1,10 +1,24 @@
 import { StyledModal } from "./styles";
 import Register from "../Register";
 
-function ModalRegister({ list, setList, open, setOpen }) {
+function ModalRegister({
+  open,
+  setNome,
+  setEmail,
+  setTel,
+  onSubmitFunction,
+  nome,
+  email,
+  tel,
+}) {
   return (
     <StyledModal show={open}>
-      <Register list={list} setList={setList} setOpen={setOpen} />
+      <Register
+        onSubmitfunction={onSubmitFunction}
+        setNome={setNome}
+        setEmail={setEmail}
+        setTel={setTel}
+      />
     </StyledModal>
   );
 }
