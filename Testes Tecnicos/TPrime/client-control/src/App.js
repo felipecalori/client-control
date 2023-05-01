@@ -5,6 +5,7 @@ import { aData } from "./DB/db";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [list, setList] = useState(aData);
@@ -52,7 +53,7 @@ function App() {
             <p>Cadastre um Contato</p>
           )}
         </div>
-        <form onSubmit={handleSubmit(onSubmitfunction)}>
+        {/* <form onSubmit={handleSubmit(onSubmitfunction)}>
           <label>nome</label>
           <input
             type="text"
@@ -75,12 +76,9 @@ function App() {
           />
           {errors.telefone?.message}
           <button type="submit">Cadastrar</button>
-        </form>
+        </form> */}
       </main>
-      <footer>
-        <h3>Logo</h3>
-        <p>contact</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
