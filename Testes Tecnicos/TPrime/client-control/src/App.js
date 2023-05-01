@@ -1,13 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import "./App.css";
 import { aData } from "./DB/db";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 function App() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(aData);
 
-  useEffect(() => {
-    setList(aData);
+  const schema = yup.object().shape({
+    nome: yup.string().required("Campo Obrigatório!"),
+    email: yup.string().email("Email inválido").required("Campo Obrigatório!"),
+    telefone: yup.number().required("Campo obrigatório!"),
   });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmitfunction = (data) => {
+    data.codigo =
+      "00" + (parseInt(list[list.length - 1].codigo) + 1).toString();
+    setList([...list, data]);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +42,7 @@ function App() {
         <div>
           {list.length > 0 ? (
             list.map((contact, index) => (
-              <div>
+              <div key={index}>
                 <p>Codigo:{contact.codigo}</p>
                 <p>Nome:{contact.nome}</p>
                 <p>Email:{contact.email}</p>
@@ -32,8 +52,31 @@ function App() {
           ) : (
             <p>Cadastre um Contato</p>
           )}
-          <button>Cadastrar</button>
         </div>
+        <form onSubmit={handleSubmit(onSubmitfunction)}>
+          <label>nome</label>
+          <input
+            type="text"
+            placeholder="Digite aqui o nome"
+            {...register("nome")}
+          />
+          {errors.nome?.message}
+          <label>email</label>
+          <input
+            type="text"
+            placeholder="Digite aqui o email"
+            {...register("email")}
+          />
+          {errors.email?.message}
+          <label>telefone</label>
+          <input
+            type="text"
+            placeholder="Digite aqui o telefone"
+            {...register("telefone")}
+          />
+          {errors.telefone?.message}
+          <button type="submit">Cadastrar</button>
+        </form>
       </main>
       <footer>
         <h3>Logo</h3>
