@@ -19,14 +19,13 @@ export const FooterBox = styled.div`
   }
   span {
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
   }
 
   @media only screen and (min-width: 600px) {
     flex-direction: row;
     max-width: 100%;
-    margin: auto;
     h3 {
       padding-left: 10%;
     }

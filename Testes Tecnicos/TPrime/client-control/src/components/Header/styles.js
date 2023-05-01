@@ -23,7 +23,6 @@ export const HeaderBox = styled.div`
 
   @media only screen and (min-width: 600px) {
     width: 90%;
-    margin: auto;
     border-radius: 30px;
     h1 {
       margin-left: 10%;
