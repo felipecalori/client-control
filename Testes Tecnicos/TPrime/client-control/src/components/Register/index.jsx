@@ -23,9 +23,8 @@ function Register({ list, setList, setOpen }) {
       "00" + (parseInt(list[list.length - 1].codigo) + 1).toString();
     setList([...list, data]);
     setOpen(false);
-    console.log(data);
-    console.log(list);
   };
+
   return (
     <StyledModalBox onSubmit={handleSubmit(onSubmitfunction)}>
       <h2>Cadastrar Cliente</h2>
@@ -36,6 +35,7 @@ function Register({ list, setList, setOpen }) {
           placeholder="Digite aqui o nome"
           {...register("nome")}
         />
+        {errors.nome?.message}
       </div>
       <div>
         <label>Email</label>
@@ -44,6 +44,7 @@ function Register({ list, setList, setOpen }) {
           placeholder="Digite aqui o email"
           {...register("email")}
         />
+        {errors.email?.message}
       </div>
       <div>
         <label>Telefone</label>
