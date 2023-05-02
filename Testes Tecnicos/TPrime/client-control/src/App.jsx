@@ -47,6 +47,7 @@ function App() {
         nome={nome}
         email={email}
         tel={tel}
+        setOpen={setOpen}
         setNome={setNome}
         setEmail={setEmail}
         setTel={setTel}
