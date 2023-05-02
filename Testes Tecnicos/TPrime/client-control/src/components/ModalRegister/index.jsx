@@ -10,14 +10,19 @@ function ModalRegister({
   nome,
   email,
   tel,
+  setOpen,
 }) {
   return (
     <StyledModal show={open}>
       <Register
+        setOpen={setOpen}
         onSubmitfunction={onSubmitFunction}
         setNome={setNome}
         setEmail={setEmail}
         setTel={setTel}
+        nome={nome}
+        email={email}
+        tel={tel}
       />
     </StyledModal>
   );
